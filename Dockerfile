@@ -1,8 +1,6 @@
 FROM php:7.4-fpm
 
-RUN php7 -r "copy('http://getcomposer.org/installer', 'composer-setup.php');" && \
-php7 composer-setup.php --install-dir=/usr/bin --filename=composer && \
-php7 -r "unlink('composer-setup.php');"
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 
 # Copy composer.lock and composer.json into the working directory
