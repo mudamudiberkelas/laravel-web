@@ -1,17 +1,17 @@
 
-git clone https://github.com/laravel/laravel.git laravel-web
-docker run --rm -v $(pwd):/app composer install
+git clone https://github.com/laravel/laravel.git laravel-web \
+docker run --rm -v $(pwd):/app composer install \
 sudo chown -R $USER:$USER ~/laravel-web
 
 docker-compose up -d
 docker ps
 
-# APP
+### APP
 docker-compose exec app bash
 php artisan key:generate
 php artisan config:cache
 
-# MYSQL
+### MYSQL
 
 docker-compose exec db bash
 
