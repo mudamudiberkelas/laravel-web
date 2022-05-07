@@ -1,7 +1,7 @@
 FROM php:7.4-fpm
  
 # Copy composer.lock and composer.json into the working directory
-COPY composer.lock composer.json /var/www/html/
+COPY /laravel/composer.lock /laravel/composer.json /var/www/html/
  
 # Set working directory
 WORKDIR /var/www/html/
