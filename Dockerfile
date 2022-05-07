@@ -1,5 +1,6 @@
 FROM php:7.4-fpm
- 
+
+RUN composer update
 # Copy composer.lock and composer.json into the working directory
 COPY laravel/composer.lock laravel/composer.json /var/www/html/
  
