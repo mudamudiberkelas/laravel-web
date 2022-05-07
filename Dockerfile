@@ -1,10 +1,9 @@
 FROM php:7.4-fpm
 
-# Install composer (php package manager)
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 # Copy composer.lock and composer.json into the working directory
 COPY composer.lock composer.json /var/www/html/
+
+RUN composer install --ignore-platform-reqs
  
 # Set working directory
 WORKDIR /var/www/html/
