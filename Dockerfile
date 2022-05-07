@@ -1,6 +1,8 @@
 FROM php:7.4-fpm
 
-RUN apt-get composer install
+# Install composer (php package manager)
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Copy composer.lock and composer.json into the working directory
 COPY laravel/composer.lock laravel/composer.json /var/www/html/
  
