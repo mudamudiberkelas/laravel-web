@@ -4,7 +4,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 
 # Copy composer.lock and composer.json into the working directory
-COPY composer.lock composer.json /var/www/html/
+COPY composer.json /var/www/html/
 
  
 # Set working directory
