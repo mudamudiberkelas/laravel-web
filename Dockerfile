@@ -3,8 +3,6 @@ FROM php:8.0-fpm
 # Copy composer.lock and composer.json into the working directory
 COPY composer.lock composer.json /var/www/html/
 
-RUN composer install --ignore-platform-reqs
- 
 # Set working directory
 WORKDIR /var/www/html/
  
