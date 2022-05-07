@@ -17,7 +17,7 @@ docker-compose exec db bash \
 
 mysql -u root -p \
 show databases; \
-GRANT ALL ON laravel_web.* TO 'laraveldocker'@'%' IDENTIFIED BY 'your_strong_laravel_docker_password'; \
+GRANT ALL ON laravel_web.* TO 'laraveldocker'@'%' IDENTIFIED BY 'p4ssw0rd@1'; \
 FLUSH PRIVILEGES; \
 
 docker-compose exec app bash \

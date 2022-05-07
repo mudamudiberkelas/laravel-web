@@ -1,5 +1,10 @@
 FROM php:8.0-fpm
 
+RUN php7 -r "copy('http://getcomposer.org/installer', 'composer-setup.php');" && \
+php7 composer-setup.php --install-dir=/usr/bin --filename=composer && \
+php7 -r "unlink('composer-setup.php');"
+ 
+
 # Copy composer.lock and composer.json into the working directory
 COPY composer.lock composer.json /var/www/html/
 
@@ -31,9 +36,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
  
 # Install composer (php package manager)
-RUN php7 -r "copy('http://getcomposer.org/installer', 'composer-setup.php');" && \
-php7 composer-setup.php --install-dir=/usr/bin --filename=composer && \
-php7 -r "unlink('composer-setup.php');"
+
  
 # Copy existing application directory contents to the working directory
 COPY . /var/www/html
