@@ -14,7 +14,7 @@ services:
       SERVICE_TAGS: dev
     working_dir: /var/www/html/
     volumes:
-      - ./laravel/:/var/www/html/
+      - ./:/var/www/html/
       - ./php/laravel.ini:/usr/local/etc/php/conf.d/laravel.ini
     networks:
       - app-network
@@ -29,7 +29,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./laravel/:/var/www/html/
+      - ./:/var/www/html/
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
